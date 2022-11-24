@@ -6,7 +6,6 @@
 [Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)  
 [Visualizing DBSCAN Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)
 ## 综述写作历程
----
 ### 方法论
 [如何撰写一篇SCI综述](https://www.xiahepublishing.com/2475-7543/MRP-2021-022)  
 ### 原材料
