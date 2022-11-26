@@ -11,12 +11,8 @@
 ### 原材料
 [Browse State-of-the-Art](https://paperswithcode.com/sota)  
 [CVPR2022](https://github.com/extreme-assistant/CVPR2022-Paper-Code-Interpretation)
-<<<<<<< HEAD
-<<<<<<< HEAD
 ### Transformer可视化
-[Attn: Illustrated Attention](https://towardsdatascience.com/attn-illustrated-attention-5ec4ad276ee3)  
-[The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)
-=======
->>>>>>> 08f6756e5fd3c67984a36340abd7fced1feab765
-=======
->>>>>>> 08f6756e5fd3c67984a36340abd7fced1feab765
+[Attn: Illustrated Attention](https://towardsdatascience.com/attn-illustrated-attention-5ec4ad276ee3)    
+[Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/#born-for-translation)  
+[The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)  
+读了这几篇文章，两天里大概花了6h。
