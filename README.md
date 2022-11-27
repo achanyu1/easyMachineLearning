@@ -16,3 +16,5 @@
 [Attention? Attention!](https://lilianweng.github.io/posts/2018-06-24-attention/#born-for-translation)  
 [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/)  
 读了这几篇文章，两天里大概花了6h。
+[Attention Is All You Need](https://arxiv.org/pdf/1706.03762v5.pdf)
+今天花了2个小时左右，磨蹭着读完了这篇论文，并由这篇论文折腾出了382字。
