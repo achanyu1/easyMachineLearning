@@ -7,9 +7,15 @@
 [Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)  
 [Visualizing DBSCAN Clustering](https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/)  
 ## 西瓜书怎么才算读懂了
+时间需求  
+作为研究生课程可以是18周，每章一周。
 基础概念、算法作业  
 基础概念的范围是什么？如何去找一些算法作业？  
+通过每章的十道习题来巩固本章学习，扩张相关知识。算法作业可以是两到三个针对具体数据集的大作业。  
 算法思想、算法推导、编程实现  
+读者由本书初入门径后，不妨搁书熟习“套路”，数月后再阅，于原不经意处或能有新得。  
+什么是“套路”？  
+机器学习是若干种算法（方法）的堆积，熟悉了“十大算法”或“二十大算法”一切即可迎刃而解，于是将目光仅聚焦在具体算法推导和编程实现上。  
 ## 综述写作历程
 ### 方法论
 [如何撰写一篇SCI综述](https://www.xiahepublishing.com/2475-7543/MRP-2021-022)  
