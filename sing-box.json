@@ -37,20 +37,5 @@
         "tag": "dns-out"
       }
     ],
-    "route": {
-      "rules": [
-        {
-          "protocol": "dns",
-          "outbound": "dns-out"
-        },
-        {
-          "geoip": [
-            "private"
-          ],
-          "outbound": "direct"
-        }
-      ],
-      "auto_detect_interface": true
-    }
   }
   
