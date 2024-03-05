@@ -1,56 +1,119 @@
 {
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
   "dns": {
     "servers": [
       {
-        "tag": "google",
-        "address": "tls://8.8.8.8"
+        "tag": "dns-remote",
+        "address": "tcp://8.8.8.8",
+        "address_resolver": "dns-direct"
       },
       {
-        "tag": "local",
-        "address": "223.5.5.5",
+        "tag": "dns-direct",
+        "address": "8.8.8.8",
+        "address_resolver": "dns-local",
         "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
       }
     ],
-    "rules": [
-      {
-        "outbound": "any",
-        "server": "local"
-      }
-    ]
+    "independent_cache": true
   },
   "inbounds": [
     {
-      "type": "tun",
-      "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
-      "auto_route": true,
-      "strict_route": false
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "set_system_proxy": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "8.8.8.8",
+      "override_port": 53
     }
   ],
   "outbounds": [
-    // ...
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": null,
+      "url": "https://cp.cloudflare.com/",
+      "interval": "10m0s"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
     {
       "type": "direct",
       "tag": "direct"
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
     }
   ],
   "route": {
+    "geoip": {
+      "path": "geo-assets\\sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets\\sagernet-sing-geosite-geosite.db"
+    },
     "rules": [
       {
-        "protocol": "dns",
+        "inbound": "dns-in",
         "outbound": "dns-out"
       },
       {
-        "geoip": [
-          "private"
-        ],
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
         "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
       }
     ],
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "store_selected": true,
+      "cache_file": "clash.db"
+    }
   }
 }
